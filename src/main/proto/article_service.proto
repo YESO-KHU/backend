@@ -1,0 +1,25 @@
+syntax = "proto3";
+package article;
+
+service ArticleService {
+  rpc GetArticles (ArticleRequest) returns (ArticleResponse) {}
+}
+
+message ArticleRequest {
+  string query = 1;
+  int32 display = 2;
+  int32 start = 3;
+}
+
+message ArticleItem {
+  string title = 1;
+  string content = 2;
+  string summary = 3;
+  string category = 4;
+  string link = 5;
+  string publishDate = 6;
+}
+
+message ArticleResponse {
+  repeated ArticleItem items = 1;
+}
